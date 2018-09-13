@@ -16,7 +16,7 @@ router.get('/', function(req, res){
 	});
 });
 
-
+//create new pirate page
 router.get('/new', function(req, res){
 	res.render("pirates/new.hbs");
 });
@@ -37,7 +37,15 @@ router.get('/:id', function(req, res){
 //==============================
 // CREATE
 //==============================
-
+router.post('/', (req,res)=> {
+	const addPirate = req.body
+	/*	pirates: the var in requirements that imports from models
+		pirates: the attribute in new.hbs's <form> tag
+		push(): the js method to append new info to an array
+		addPirate: the const above that holds req.body */
+	pirates.push(addPirate)
+	res.redirect('/pirates')
+})
 //==============================
 // UPDATE
 //==============================
@@ -45,7 +53,12 @@ router.get('/:id', function(req, res){
 //==============================
 // DESTROY
 //==============================
+router.delete('/:id', (req,res) => {
+	console.log(`Walk the plank!: ${pirates[req.params.id]}`)
+	pirates.splice(req.params.id, 1)
+	res.redirect('/pirates')
 
+})
 //==============================
 // EXPORTS
 //==============================
