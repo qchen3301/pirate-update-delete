@@ -21,6 +21,13 @@ router.get('/new', function(req, res){
 	res.render("pirates/new.hbs");
 });
 
+//create update-pirates form page
+router.get('/:id/update', (req,res) => {
+	const editPirate = pirates[req.params.id]
+	editPirate.id = req.params.id
+	console.log("About to edit ", editPirate)
+	res.render('pirates/update.hbs', {editPirate: pirates})
+})
 
 //this is for each pirate page
 router.get('/:id', function(req, res){
@@ -49,7 +56,11 @@ router.post('/', (req,res)=> {
 //==============================
 // UPDATE
 //==============================
-
+router.put('/:id', (res,req) => {
+	const updatePirate = req.body
+	pirates[req.params.id] = updatePirate
+	res.redirect(`/pirates/${req.params.id}`)
+})
 //==============================
 // DESTROY
 //==============================
