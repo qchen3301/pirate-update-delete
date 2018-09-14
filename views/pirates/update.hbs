@@ -1,5 +1,5 @@
 <h1>Edit {{editPirate.name}}</h1>
-  <form action="/pirates/{{pirates.id}}?_method=PUT" method="POST">
+  <form action="/pirates/{{editPirate.id}}?_method=PUT" method="POST">
     Name: <input type="text" name="name" placeholder={{editPirate.name}}><br>
     Birthplace: <input type="text" name="birthplace" placeholder={{editPirate.birthplace}}><br>
     Death Year: <input type="number" name="death_year" placeholder={{editPirate.death_year}}><br>

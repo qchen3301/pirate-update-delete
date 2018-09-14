@@ -26,7 +26,10 @@ router.get('/:id/update', (req,res) => {
 	const editPirate = pirates[req.params.id]
 	editPirate.id = req.params.id
 	console.log("About to edit ", editPirate)
-	res.render('pirates/update.hbs', {editPirate: pirates})
+	/*	res.render('this is the url/hbs file to send data to' , )
+		{this is an object we're sending to the url/hbs file}
+		{declare a key variable : this is the data that will be matched to this key}	*/
+	res.render('pirates/update.hbs', {editPirate: editPirate})
 })
 
 //this is for each pirate page
