@@ -24,7 +24,7 @@ router.get('/new', function(req, res){
 //create update-pirates form page
 router.get('/:id/update', (req,res) => {
 	const editPirate = pirates[req.params.id]
-	editPirate.id = req.params.id
+	editPirate.id = [req.params.id]
 	console.log("About to edit ", editPirate)
 	res.render('pirates/update.hbs', {editPirate: pirates})
 })
